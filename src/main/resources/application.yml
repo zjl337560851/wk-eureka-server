@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: workspace_eureke_server
+
+server:
+  port: 8761 #指定8761为eureka运行的端口号
+
+eureka:
+  #服务端配置
+  server:
+    #当自我保护机制开始时，实例不会删除，导致部分请求会访问不存在的实例，如果客户端没有做重试或者熔断就会出现大量问题
+    enable-self-preservation: false #关闭自我保护机制
+  #实例配置
+  instance:
+    hostname: localhost #指定主机地址
+  #客户端配置
+  client:
+    fetch-registry: false #指定是否要从注册中心获取服务（注册中心不需要开启）
+    register-with-eureka: false #指定是否要注册到注册中心（注册中心不需要开启）
